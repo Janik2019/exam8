@@ -37,3 +37,11 @@ class Review(models.Model):
                                on_delete=models.CASCADE, related_name='review')
     text = models.TextField(max_length=400, verbose_name='Текст отзыва')
     models.IntegerField(choices=REVIEW_CHOICES, verbose_name='Оценка')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+
