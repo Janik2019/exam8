@@ -36,10 +36,10 @@ class Review(models.Model):
     author = models.ForeignKey(User, null=True, blank=True, default=None, verbose_name='Автор',
                                on_delete=models.CASCADE, related_name='review')
     text = models.TextField(max_length=400, verbose_name='Текст отзыва')
-    models.IntegerField(choices=REVIEW_CHOICES, verbose_name='Оценка')
+    raiting = models.IntegerField(choices=REVIEW_CHOICES, verbose_name='Оценка', null=True, blank=False)
 
     def __str__(self):
-        return self.name
+        return self.text[:20]
 
     class Meta:
         verbose_name = 'Отзыв'
