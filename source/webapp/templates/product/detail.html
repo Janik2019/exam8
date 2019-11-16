@@ -11,11 +11,13 @@
                 {% else %}
                     <img src="{% static 'image.jpg' %}" alt="prod_pic" class="img-fluid">
                 {% endif %}
-{#                <img src="{{ product.photo.url }}" class="img-fluid" alt="{{ product.name }}">#}
             </div>
         </div>
         <p><b>Категория:</b> {{ product.get_category_display }}</p>
         <p><b>Описание товара: <br></b> {{ product.desctiption }}</p>
-{#        <p><a href="{% url 'webapp:basket_change' %}?pk={{ product.pk }}&action=add&next={% url "webapp:product_detail" product.pk %}" class="btn btn-primary">В корзину</a></p>#}
+
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'webapp:review_create' product.pk %}" class="btn btn-primary">Добавить отзыв к товару</a>
+        {% endif %}
     </div>
 {% endblock %}

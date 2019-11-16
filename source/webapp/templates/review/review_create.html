@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Добавить отзыв к товару{% endblock %}
+{% block content %}
+   <h1>Добавить отзыв к товару</h1>
+   <form action="" method="POST">
+        {% include 'partial/form.html' with button_text='Создать' %}
+        <p><input type="submit" value="Создать" class="btn-lg btn-dark"></p>
+   </form>
+{% endblock %}
